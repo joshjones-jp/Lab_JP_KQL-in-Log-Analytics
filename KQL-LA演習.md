@@ -1,9 +1,9 @@
 ---
-title: Medallion Lakehouse アーキテクチャ入門🥉🥈🥇
+title: 🔎Log AnalyticsのワークスペースでKQLを練習する🔍
 permalink: index.html
 layout: home
 ---
-# 🏅Medallion アーキテクチャについて🏠
+# 🔎KQLとLog Analyticsについて☁️
 
 メダリオン レイクハウス アーキテクチャ (一般に"メダリオン アーキテクチャ" と呼ばれます) は、組織がレイクハウス内のデータを論理的に整理するために使用する設計パターンです。 これは Fabric に推奨される設計アプローチです。
 
