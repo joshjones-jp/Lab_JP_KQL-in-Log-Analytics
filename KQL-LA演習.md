@@ -129,6 +129,7 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 # 演習：Microsoft Sentinel用の KQL
 
+
 ## **1️⃣**
 以下のクエリをコピーして、クエリウィンドウに使用してください
 
@@ -142,6 +143,7 @@ search "err"
 </code></pre>
 </div>
 
+
 <table>
   <tr>
     <th>💡ヒント</th>
@@ -151,7 +153,9 @@ search "err"
   </tr>
 </table>  
 
+
 上左のプラス ➕ ボタンを押して、別Log Analyticsタブで以下のクエリを試してください
+
 
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
@@ -163,13 +167,21 @@ search in (SecurityEvent,SecurityAlert,A*) "err"
 </div>
 
 
-２つのタブにあるクエリ結果を比べよう。クエリ時間はどっちが早いですか？
+<table>
+  <tr>
+    <th>✅理解確認</th>
+  </tr>
+  <tr>
+    <td>２つのタブにあるクエリ結果を比べよう。クエリ時間はどっちが早いですか？</td>
+  </tr>
+</table> 
 
 ## **2️⃣**
 
 テーブルをフィルターしましょう。「where」を使うと、テーブルのサブセットだけを取得する。
 
 whereを利用する以下のクエリを試してください
+
 
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
@@ -181,6 +193,7 @@ SecurityEvent
 </code></pre>
 </div>
 
+
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
@@ -190,6 +203,7 @@ SecurityEvent
 | where TimeGenerated > ago(1h) and EventID == "4624"
 </code></pre>
 </div>
+
 
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
@@ -203,6 +217,7 @@ SecurityEvent
 </code></pre>
 </div>
 
+
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
@@ -211,6 +226,7 @@ SecurityEvent
 SecurityEvent | where EventID in (4624, 4625)
 </code></pre>
 </div>
+
 
 <table>
   <tr>
