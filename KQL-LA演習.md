@@ -1,5 +1,5 @@
 ---
-title: 🔎Log AnalyticsのワークスペースでKQLを練習する🔍
+title: 🔎Log AnalyticsのワークスペースでKQLを練習する🔍 
 permalink: index.html
 layout: home
 ---
