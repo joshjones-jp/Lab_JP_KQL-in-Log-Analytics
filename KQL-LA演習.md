@@ -16,7 +16,14 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 |-------------|
 | Microsoft Sentinel では、"Microsoft Sentinel ワークスペース" という用語が使用されています。 このワークスペースは、Log Analytics ワークスペースと同じですが、Microsoft Sentinel で使用できるようになっています。 ワークスペース内のすべてのデータには、Microsoft Sentinel の価格が適用されます。     |
 
-
+<table>
+  <tr>
+    <th>⭐注目⭐</th>
+  </tr>
+  <tr>
+    <td>Microsoft Sentinel では、"Microsoft Sentinel ワークスペース" という用語が使用されています。 このワークスペースは、Log Analytics ワークスペースと同じですが、Microsoft Sentinel で使用できるようになっています。 ワークスペース内のすべてのデータには、Microsoft Sentinel の価格が適用されます。</td>
+  </tr>
+  
 
 
 
