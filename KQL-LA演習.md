@@ -476,4 +476,4 @@ SecurityEvent
 
 全て完了してから、回答例を確認してください
 
-
+<a href="KQLチャレンジ回答例.html">KQLチャレンジ回答例</a>
