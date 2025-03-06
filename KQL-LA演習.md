@@ -158,26 +158,30 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 <img src="images/AZD8-5.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
 
-<pre><code>
-def hello_world():
-    print("Hello, world!")
+<pre><code class="language-kusto">
+search "err"
+
+search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
+
 
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-<pre><code class="language-python">
-def hello_world():
-    print("Hello, world!")
+<pre><code class="language-kusto">
+search "err"
+
+search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
 
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<pre><code class="python">
-def hello_world():
-    print("Hello, world!")
+<pre><code class="kusto">
+  search "err"
+
+search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
 
 
