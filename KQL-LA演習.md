@@ -67,98 +67,67 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 ## ツールの案内と説明
 
-使い方1️⃣：右上の機能
+使い方1️⃣：アクション バー
 
-1. **New Diagram**: 新しい画面を作る操作。編集中のDiagramを保存しないで New Diagram押すと、途中までの図が削除される
+1. **実行**: クエリウィンドウに入っているクエリが実行されます。代わりに、Shift + Enter でも実行可能
     
-1. **Clone Diagram**: 表情の図を新しいリンクで複製する
+1. **時間の範囲**: クエリで使用できるデータの時間範囲。クエリに時間のフィルターが含まれている場合は、時間の範囲がオーバーライドされる
     
-1. **Export**:　図を画像としてエクスポートする
+1. **保存**:　クエリをクエリ パックに保存する。今回の演習では無効となっている
 
-1. **Settings**: プロフィールや図についてさまざまな設定。
+1. **共有**: 次のアイテムをコピーする
+   - クエリへのリンク
+   - クエリのテキスト
+   - クエリの結果
     
-1. **Save Changes**: 変更は自動保存じゃないため、閉じる前に押すこと
+1. **新しいアラートルール**: 警告ルールの[作成]ページ を開く。 このページを使用して、アラートの種類がログ検索アラートの警告ルールを作成する。 [条件] タブが選択された状態でページが開き、[検索クエリ] フィールドにクエリが追加される
+
+    ※デモでは無効  
     
-1. **プロフィール**: （任意）アカウントのログイン、プロフィール編集、パスワード変更
+1. **エクスポート**: クエリの結果を CSV ファイルにエクスポートする。クエリを Power BI で使用するための Power Query Formula Language 形式にエクスポートする事も可能
+
+1. **ピン留め先**: 次のアクションが可能
+   - Azureダッシュボードにピン留めする
+   - Azureブックに追加する
+
+1. **クエリの形式設定**: 選択したテキストを読みやすく配置する
+
+
+<img src="images/KQL5.png" alt="LADemo" style="width:950px; height:500px;">
+
+
+使い方2️⃣：左側サイド バー
+
+1. **テーブル**: ワークスペースに含まれるテーブル
+       
+1. **クエリ**: プリビルトのクエリ。選択して、右のクエリウィンドウに追加する
     
+1. **関数**:　コマンドのように、他のLog Analyticsのログ クエリに対して使えるクエリ。
 
-<img src="images/AZD2.png" alt="Azure Diagrams Tutorial" style="width:950px; height:500px;">
+1. **テーブル一覧**: カテゴリーを開いて、ワークスペースに含まれているテーブルの確認ができる。Securityを開いてみましょう。
 
+<img src="images/KQL6.png" alt="LADemo" style="width:950px; height:500px;">
 
-使い方2️⃣：左側の図パーツ
+使い方3️⃣：結果ウィンドウ
 
-1. **Search**: よく利用されるサービスを検索して図に追加する。全てのリソースでもない
+1. **結果**: クエリしたデータがテーブル（列ｘ行）形式で表示される
     
-1. **Annotation**: 長文のテキストを書くためのラベル
+1. **グラフ**: クエリしたデータを視覚化で表示
     
-1. **Label**:　短文のテキストを書くためのラベル
+1. **クエリ時間**: クエリを実施するためかかった時間
 
-1. **Custom Resource**: 製品やプロセスのカスタムでできるタイル。アイコン、タイトル、サブタイトルが含まれる
-    
-1. **Section**: 複数のリソースをまとめて表情するためのボックス
-    
-1. **Shape**: 図形の作成
+1. **結果の範囲**: 表情されている行と全て行のカウント
 
-<img src="images/AZD3.png" alt="Azure Diagrams Tutorial" style="width:950px; height:500px;">
+1. **青色矢印**: search in でテーブルをフィルターする。A*利用すると、Ａで始まるテーブル名が選択される。これで、AVSSyslogがクエリされた
 
-使い方3️⃣：カスタム リソース
-
-1. **Custom Resource**: ドラッグアンドドロップで図に追加
-    
-1. **接続・データ フロー**: Custom Resourceの間に線を引くと、データの流れを表示する。リソースの種類によって、自動的線も変わる場合がある
-    
-1. **カスタマイズ**:　アイコンを押すと、Resource タイルの表示設定を調整
-
-1. **アイコン**: Searchで表示されないアイコンがたくさんある。より細かいアーキテクチャ図を作るならオススメ
+1. **オレンジ色矢印**: errというテキストが含まれる行が検索される
 
 
-<img src="images/AZD4.png" alt="Azure Diagrams Tutorial" style="width:950px; height:500px;">
-
-使い方4️⃣：カスタム シェイプ
-
-1. **Shapes**: ドラッグアンドドロップで図に追加
-    
-1. **Shape**: 図形の形を設定する
-    
-1. **Background Color**:　透明度をマックスに上げると、枠だけの図形になる
-
-1. **Border Color**: 図の枠の色の設定
+<img src="images/KQL7.png" alt="LADemo" style="width:950px; height:500px;">
 
 
 
-<img src="images/AZD5.png" alt="Azure Diagrams Tutorial" style="width:950px; height:500px;">
-
-
-
-### **任意**: アカウントの登録
-
-
-今回の演習は、アカウントを登録せずに全てのタスクは完了可能です。
-しかし、アカウントを持っている場合は以下のメリットあります：
-- 作った Diagram を保存し、後で編集する
-- Diagramを他のユーザーまたはコミュニティーに共有ができる
-- 他のユーザーにプライベート（非公開）Diagram 共有とアクセス権限の設定（役割型）
-
-
-<u><b>サインアップする方法</b></u>
-
-1️⃣
-
-右上の**Sign In**を押して、**Sign in or Create Accountを押します**
-
-<img src="images/AZD8.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
-
-2️⃣
-
-**Don't have an account? Sign up now**を押します
-
-3️⃣
-
-以下の画面に、メールアドレスを入力して、メールアドレス確認が終わってからパスワードと名前を設定します。
-
-<img src="images/AZD8-5.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
-
-
+# ✅Fabricのサンプル アーキテクチャ図を確認する✅
 
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
@@ -177,9 +146,6 @@ search "err"
 search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
 </div>
-
-# ✅Fabricのサンプル アーキテクチャ図を確認する✅
-
 
 **1️⃣**
 
