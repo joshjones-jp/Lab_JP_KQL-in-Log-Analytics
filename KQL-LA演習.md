@@ -21,12 +21,6 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
   </tr>
 </table>  
 
-| Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
-| Row 1 Col 1 | Row 1 Col 2 | Row 1 Col 3 |
-| Row 2 Col 1 | Row 2 Col 2 | Row 2 Col 3 |
-
-
 # ☁️Azure Diagrams について☁️
 この演習では、無料ツールのAzure Diagramsを使用し、Fabricのアーキテクチャを説明する図を作成します。
 
@@ -194,6 +188,11 @@ Fabricのサンプル図 **Lakehouse Architecture on Fabric**を探して、ク�
 1. （option）1. の図をクローンし、lab 05-07 の内容を反映してみましょう
 
 1. lab 01-04 の作図をメダリオンアーキテクチャとして拡張しましょう
+
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Row 1 Col 1 | Row 1 Col 2 | Row 1 Col 3 |
+| Row 2 Col 1 | Row 2 Col 2 | Row 2 Col 3 |
 
 
 ### 回答例
