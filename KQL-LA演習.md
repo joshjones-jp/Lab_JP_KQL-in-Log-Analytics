@@ -24,22 +24,38 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 # ☁️Azureのアカウント作成☁️
 ❗既にアカウントをお持ちの方は次のセクションに進んでください。
 
-Azure Diagramsは、Microsoft の公式なツールではありません。Microsoft の社員がアーキテクチャを説明するために作った便利なリソースです。
-費用は一切かかりませんが、会社のセキュリティーおよびコンプライアンスのポリシーに従ってアカウントを作るか判断してください。
-今日の演習では、アカウント無しでも実施ができますので、アカウント作成は受講者の自由となります。
+まずは以下のリンクにアクセスしてください
 
-Fabricだけではなく、他にもアーキテクチャの図は作成可能：
-- Azure
-- Power Platform・Dynamics 365
-- マイクロソフト以外のベンダー（GCP、AWS等）
+<a href="https://azure.microsoft.com/ja-jp/pricing/purchase-options/azure-account" target="_blank">https://azure.microsoft.com/ja-jp/pricing/purchase-options/azure-account</a>
 
-## Azure Diagramsへのアクセスと準備
+左側にある無料アカウントのオプションを選択
 
-先ずは以下のリンクをブラウザの別タブでアクセスしてください。
-**Blank Canvas** を押します。
+<img src="images/KQL1.png" alt="Azureアカウント" style="width:950px; height:500px;">
+
+プロファイル情報を入力する
+
+<img src="images/KQL2.png" alt="Azureアカウント" style="width:950px; height:500px;">
+
+クレジットカードの情報を入力する
+アカウント登録してから、1回アカウントに１００円ぐらいの料金が発生します。これはカードが有効か確認するためにあって、すぐ同じ金額が自動的に返されます。
+
+<table>
+  <tr>
+    <th>ℹ️自動請求なし</th>
+  </tr>
+  <tr>
+    <td>「お客様のクレジットが終了後、従量課金制を続行するかどうかお尋ねします。続行する場合、サービスの無料分を超えて使用した場合にのみ支払うことになります。」</td>
+  </tr>
+</table> 
+
+<img src="images/KQL3.png" alt="Azureアカウント" style="width:950px; height:500px;">
+
+# 🔎Log Analyticsデモにアクセス🛡️
+
+以下のリンクをブラウザの別タブでアクセスしてください。
 
 <!-- This link format lets us open in a seperate tab 😇 -->
-<a href="https://azurediagrams.com/" target="_blank">https://azurediagrams.com</a>
+<a href="https://aka.ms/lademo" target="_blank">https://aka.ms/lademo</a>
 
 
 
