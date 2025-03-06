@@ -129,6 +129,8 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 # 演習：Microsoft Sentinel用の KQL
 
+### 以下のクエリ練習によって、ハンズオンでKQLの勉強ができる。Log Analyticsのデモ ワークスペースによって、演習のクエリはたまにエラーが発生する。パラメーターの調整や Copilot 等の生成AIツールでトラブルシューティングを行ってください。
+
 
 ## **1️⃣**
 以下のクエリをコピーして、クエリウィンドウに使用してください
@@ -237,28 +239,108 @@ SecurityEvent | where EventID in (4624, 4625)
   </tr>
 </table> 
 
+
 ## **3️⃣**
 
-**Fabric Data Factory**と**Fabric Lakehouse**の間にある接続をマウスでかざして、統合の詳細が **Batch & Scheduled**となっている事を確認します。
+以下のクエリでは、letは変数を作るために使用される
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+let timeOffset = 7d;
+let discardEventId = 4688;
+SecurityEvent
+| where TimeGenerated > ago(timeOffset*2) and TimeGenerated < ago(timeOffset)
+| where EventID != discardEventId
+</code></pre>
+</div>
+
+let ステートメントを使用すると、動的なテーブルまたはリストを作成ができる。
 
 
-<img src="images/AZD12.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
-
-**4️⃣**
-
-
-コミュニティーが提供している例もあります。**Community Diagrams**を押し、ブラウザのページ上検索（Ctrl+F)に「Fabric」を入力して、好きなサンプルを選びます。
-
-
-<img src="images/AZD13.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
-
-
-
-
-# 🏠Fabricのアーキテクチャ図を作成する🌊
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+let suspiciousAccounts = datatable(account: string) [
+    @"\administrator", 
+    @"NT AUTHORITY\SYSTEM"
+];
+SecurityEvent | where Account in (suspiciousAccounts)
+</code></pre>
+</div>
 
 
-## 演習
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+let LowActivityAccounts =
+    SecurityEvent 
+    | summarize cnt = count() by Account 
+    | where cnt < 1000;
+LowActivityAccounts | where Account contains "SQL"
+</code></pre>
+</div>
+
+
+## **4️⃣**
+
+Extend演算子（オペレーター）は新しい計算さらた列を作成する。以下のクエリで試そう：
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where ProcessName != "" and Process != ""
+| extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
+</code></pre>
+</div>
+
+
+## **5️⃣**
+
+
+order byを利用すると、列を使用して行の順番を並べ替える。
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where ProcessName != "" and Process != ""
+| extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
+| order by StartDir desc, Process asc
+</code></pre>
+</div>
+
+
+## **6️⃣**
+
+
+プロジェクトを使用すると、結果に含まれる列の構成ができる。
+
+| 演算子 | 説明 |
+|----------|----------|
+| project | 含める列、名前を変更する列、または削除する列を選択し、新しい計算列を挿入します。 |
+| project-away | 出力から除去する入力の列を選択します。 |
+| project-keep | 出力に保持する入力の列を選択します。|
+| project-rename | 結果の出力で名前を変更する列を選択します。 |
+| project-reorder | 結果の出力における列の順序を設定します。 |
+
+
+
+# 🧩演習：クエリ作成チャレンジ🧩
+
 
 1. lab 01-04 で実施した内容を Azure Diatrams を使用して作図しましょう
 
@@ -266,10 +348,7 @@ SecurityEvent | where EventID in (4624, 4625)
 
 1. lab 01-04 の作図をメダリオンアーキテクチャとして拡張しましょう
 
-| Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
-| Row 1 Col 1 | Row 1 Col 2 | Row 1 Col 3 |
-| Row 2 Col 1 | Row 2 Col 2 | Row 2 Col 3 |
+
 
 
 ### 回答例
@@ -280,36 +359,6 @@ SecurityEvent | where EventID in (4624, 4625)
    1. [Azure Diagrams](https://azurediagrams.com/e4F4s7l8)
 3. [メダリオンアーキテクチャの回答例へのリンク](./images/diagram-medallion.png)
    1. [Azure Diagrams](https://azurediagrams.com/NhmRmML4)
-
-
-
-# 📂図のエクスポートと共有🔗
-
-<u><b>図の共有方法は２つあります</b></u>
-
-方法1️⃣：画像として保存
-
-PNGとSVGは使えます。右上の画像アイコンを押して、ファイルタイプを選択します。
-
-SVGを選ぶと、ライブインタラクション（スクロール等）ができます
-
-<img src="images/AZD20.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
-
-方法2️⃣：図へのアクセスを共有
-
-３つの共有タイプがあります。
-1. **Community**:図は検索可能で、誰でも閲覧でき、**Community Diagrams** に表示されます。
-    
-1. **Link**:図は検索から隠されていますが、ユニークなリンクを持っている人なら誰でもアクセスできます。
-
-1. **Private**:図は共有した人だけがアクセスできます。
-
-共有するために、Diagram を保存して、設定の歯車 ⚙ を押します。
-
-設定のオプションから、Sharing 👥 を押します。
-
-<img src="images/AZD21.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
-
 
 
 ## リソース
