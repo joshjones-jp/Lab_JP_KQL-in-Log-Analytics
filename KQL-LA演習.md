@@ -159,7 +159,7 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 <img src="images/AZD8-5.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
 
 
-<div class="code-container">
+
 <pre><code class="language-kusto">
 search "err"
 
@@ -176,7 +176,7 @@ search "err"
 search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
 
-
+<div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
@@ -185,7 +185,7 @@ search in (SecurityEvent,SecurityAlert,A*) "err"
 
 search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
-
+</div>
 
 # ✅Fabricのサンプル アーキテクチャ図を確認する✅
 
