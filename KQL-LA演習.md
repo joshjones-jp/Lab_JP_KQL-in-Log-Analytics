@@ -158,6 +158,8 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 <img src="images/AZD8-5.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
 
+
+<div class="code-container">
 <pre><code class="language-kusto">
 search "err"
 
