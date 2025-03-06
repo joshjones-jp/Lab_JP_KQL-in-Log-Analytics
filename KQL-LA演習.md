@@ -21,6 +21,7 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
   </tr>
 </table>  
 
+
 # ☁️Azureのアカウント作成☁️
 ❗既にアカウントをお持ちの方は次のセクションに進んでください。
 
@@ -50,6 +51,7 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 <img src="images/KQL3.png" alt="Azureアカウント" style="width:950px; height:500px;">
 
+
 # 🔎Log Analyticsデモにアクセス🛡️
 
 以下のリンクをブラウザの別タブでアクセスしてください。
@@ -57,9 +59,10 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 <!-- This link format lets us open in a seperate tab 😇 -->
 <a href="https://aka.ms/lademo" target="_blank">https://aka.ms/lademo</a>
 
+右上の青色バッテン ✖ を押してください。
 
 
-<img src="images/AZD1.png" alt="Azure Diagramsメイン画面" style="width:950px; height:500px;">
+<img src="images/KQL4.png" alt="LADemo" style="width:950px; height:500px;">
 
 
 ## ツールの案内と説明
@@ -155,6 +158,27 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 <img src="images/AZD8-5.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
 
+<pre><code>
+def hello_world():
+    print("Hello, world!")
+</code></pre>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+<pre><code class="language-python">
+def hello_world():
+    print("Hello, world!")
+</code></pre>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="python">
+def hello_world():
+    print("Hello, world!")
+</code></pre>
 
 
 # ✅Fabricのサンプル アーキテクチャ図を確認する✅
