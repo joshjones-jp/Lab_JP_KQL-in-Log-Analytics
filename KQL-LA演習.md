@@ -127,7 +127,11 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
 
 
 
-# ✅Fabricのサンプル アーキテクチャ図を確認する✅
+# 演習：Microsoft Sentinel用の KQL
+
+## **1️⃣**
+以下のクエリをコピーして、クエリウィンドウに使用してください
+
 
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
@@ -138,6 +142,17 @@ search "err"
 </code></pre>
 </div>
 
+<table>
+  <tr>
+    <th>💡ヒント</th>
+  </tr>
+  <tr>
+    <td>最初の search クエリでは、エラーを回避する場合は、クエリ ウィンドウで時間範囲を "過去 1 時間" に調整することが必要になる場合があります。</td>
+  </tr>
+</table>  
+
+上左のプラス ➕ ボタンを押して、別Log Analyticsタブで以下のクエリを試してください
+
 <div class="code-container">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
@@ -147,23 +162,66 @@ search in (SecurityEvent,SecurityAlert,A*) "err"
 </code></pre>
 </div>
 
-**1️⃣**
 
-左下にある **Examples** を押します
+２つのタブにあるクエリ結果を比べよう。クエリ時間はどっちが早いですか？
 
+## **2️⃣**
 
-<img src="images/AZD10.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
+テーブルをフィルターしましょう。「where」を使うと、テーブルのサブセットだけを取得する。
 
-**2️⃣**
+whereを利用する以下のクエリを試してください
 
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where TimeGenerated > ago(1d)
+</code></pre>
+</div>
 
-Examplesのウィンドウが開かれます。ウィンドウの上をマウスで掴んで(1)、サイズを調整します。
-Fabricのサンプル図 **Lakehouse Architecture on Fabric**を探して、クリックします。(2)
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where TimeGenerated > ago(1h) and EventID == "4624"
+</code></pre>
+</div>
 
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where TimeGenerated > ago(1h)
+| where EventID == 4624
+| where AccountType =~ "user"
+</code></pre>
+</div>
 
-<img src="images/AZD11.png" alt="Azure Diagrams画面" style="width:950px; height:500px;">
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent | where EventID in (4624, 4625)
+</code></pre>
+</div>
 
-**3️⃣**
+<table>
+  <tr>
+    <th>✅理解確認</th>
+  </tr>
+  <tr>
+    <td>上記のクエリには、SecurityEventは何の役割ですか？</td>
+  </tr>
+</table> 
+
+## **3️⃣**
 
 **Fabric Data Factory**と**Fabric Lakehouse**の間にある接続をマウスでかざして、統合の詳細が **Batch & Scheduled**となっている事を確認します。
 
