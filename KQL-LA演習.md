@@ -12,10 +12,6 @@ Kusto クエリ言語 (KQL) は、データの探索やパターンの検出、�
 ## Log Analyticsワークスペース
 Log Analytics ワークスペースは、すべての Azure および Azure 以外のリソースとアプリケーションから任意の種類のログ データを収集できるデータ ストアです。 ワークスペース構成オプションを使用すると、次の方法で、すべてのログ データを 1 つのワークスペースで管理し、組織内のさまざまな担当者の操作、分析、監査のニーズを満たすことができます。
 
-| ⭐注目⭐ |
-|-------------|
-| Microsoft Sentinel では、"Microsoft Sentinel ワークスペース" という用語が使用されています。 このワークスペースは、Log Analytics ワークスペースと同じですが、Microsoft Sentinel で使用できるようになっています。 ワークスペース内のすべてのデータには、Microsoft Sentinel の価格が適用されます。     |
-
 <table>
   <tr>
     <th>⭐注目⭐</th>
@@ -23,7 +19,7 @@ Log Analytics ワークスペースは、すべての Azure および Azure 以�
   <tr>
     <td>Microsoft Sentinel では、"Microsoft Sentinel ワークスペース" という用語が使用されています。 このワークスペースは、Log Analytics ワークスペースと同じですが、Microsoft Sentinel で使用できるようになっています。 ワークスペース内のすべてのデータには、Microsoft Sentinel の価格が適用されます。</td>
   </tr>
-  
+</table>  
 
 
 
