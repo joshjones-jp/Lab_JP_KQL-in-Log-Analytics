@@ -338,31 +338,116 @@ SecurityEvent
 | project-reorder | 結果の出力における列の順序を設定します。 |
 
 
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| project Computer, Account
+</code></pre>
+</div>
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where ProcessName != "" and Process != ""
+| extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
+| order by StartDir desc, Process asc
+| project Process, StartDir
+</code></pre>
+</div>
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+| where ProcessName != "" and Process != ""
+| extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
+| order by StartDir desc, Process asc
+| project-away ProcessName)
+</code></pre>
+</div>
+
+
 
 # 🧩演習：クエリ作成チャレンジ🧩
 
 
-1. lab 01-04 で実施した内容を Azure Diatrams を使用して作図しましょう
+このチャレンジでは、クエリがまだ完了していない。
+コメントを読んで、タスクを実施するためにクエリを編集してください。
+上記以外の演算子を使用してもいいので、以下のリソースリンクにアクセスしてください。
 
-1. （option）1. の図をクローンし、lab 05-07 の内容を反映してみましょう
-
-1. lab 01-04 の作図をメダリオンアーキテクチャとして拡張しましょう
-
-
+<a href="https://learn.microsoft.com/ja-jp/kusto/query/tutorials/learn-common-operators?view=azure-data-explorer" target="_blank">https://learn.microsoft.com/ja-jp/kusto/query/tutorials/learn-common-operators?view=azure-data-explorer</a>
 
 
-### 回答例
-
-1. [lab 01-04 の回答例へのリンク](./images/diagram-01-04.png)
-   1. [Azure Diagrams](https://azurediagrams.com/D54ivtsh)
-2. [lab 05-07 の回答例へのリンク](./images/diagram-05-07.png) 
-   1. [Azure Diagrams](https://azurediagrams.com/e4F4s7l8)
-3. [メダリオンアーキテクチャの回答例へのリンク](./images/diagram-medallion.png)
-   1. [Azure Diagrams](https://azurediagrams.com/NhmRmML4)
+## **1️⃣**
 
 
-## リソース
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+</code></pre>
+</div>
 
-- [Microsoft Fabric でメダリオン Lakehouse アーキテクチャを実装](https://learn.microsoft.com/jp-ja/fabric/onelake/onelake-medallion-lakehouse-architecture)
-- [Microsoft Fabric のグリーンフィールド レイクハウス](https://learn.microsoft.com/ja-jp/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
-- [Microsoft Fabric 開発ガイド](https://speakerdeck.com/ryomaru0825/microsoft-fabric-kai-fa-gaido?slide=31)
+
+## **2️⃣**
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+</code></pre>
+</div>
+
+
+## **3️⃣**
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+</code></pre>
+</div>
+
+
+## **4️⃣**
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+</code></pre>
+</div>
+
+
+## **5️⃣**
+
+
+<div class="code-container">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<pre><code class="kusto">
+SecurityEvent
+</code></pre>
+</div>
